@@ -1,14 +1,16 @@
 import React, { useContext } from 'react';
+import HomeServiceCon from './HomeSer';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import Banner from './Banner';
 
 const Home = () => {
-    
+  
     const {me}=useContext(AuthContext)
     console.log(me)
     return (
         <div>
-<h1>09weri09qiwrq0ik</h1>
-            
+            <Banner/>
+           <HomeServiceCon/>
         </div>
     );
 };
