@@ -52,6 +52,9 @@ const Nav = () => {
                         <Link className='lg:text-lg' to="/blogs">
                             Blogs
                         </Link>
+                        <Link className='lg:text-lg' to="/myreviews">
+                            My Reviews
+                        </Link>
                         {user?.photoURL ?
 
 

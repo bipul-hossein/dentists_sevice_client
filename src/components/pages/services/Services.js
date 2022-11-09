@@ -4,7 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const Services = () => {
     const data = useLoaderData()
-    console.log(data)
+   // console.log(data)
     return (
         <div className='mx-40 mt-12'>
         <div className='flex flex-row sm:flex-wrap gap-4 '>
