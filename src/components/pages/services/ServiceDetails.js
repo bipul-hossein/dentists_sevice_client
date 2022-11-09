@@ -27,14 +27,14 @@ const ServiceDetails = () => {
 
         const review = {
             service: _id,
-            serviecName: header,
+            serviceName: header,
+            serviceImg:img,
             price,
             customer: name,
             email,
             reviewField,
             rating,
-            img,
-
+            
         }
 
         fetch('http://localhost:5000/reviews', {

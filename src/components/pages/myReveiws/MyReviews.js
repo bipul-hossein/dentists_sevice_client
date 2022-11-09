@@ -13,20 +13,25 @@ const MyReviews = () => {
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [user?.email])
-
+    console.log(reviews)
     return (
         <div>
             <p className='text-7xl mb-20 mt-8'>my review length:{reviews.length}</p>
             <Table hoverable={true}>
                 <Table.Head>
                     <Table.HeadCell>
+                        <span className="sr-only">
+                            service image
+                        </span>
+                    </Table.HeadCell>
+                    <Table.HeadCell>
                         Service name
                     </Table.HeadCell>
                     <Table.HeadCell>
-                       Review
+                        Review
                     </Table.HeadCell>
                     <Table.HeadCell>
-                       Rating
+                        Rating
                     </Table.HeadCell>
                     <Table.HeadCell>
                         Price
@@ -43,11 +48,11 @@ const MyReviews = () => {
                     </Table.HeadCell>
                 </Table.Head>
                 {
-                    reviews.map(review=><ReviewRow key={review._id}
-                    review={review}
+                    reviews.map(review => <ReviewRow key={review._id}
+                        review={review}
                     ></ReviewRow>)
                 }
-               
+
             </Table>
         </div>
     );
