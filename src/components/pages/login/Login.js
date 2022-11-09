@@ -1,6 +1,6 @@
 import { Button, Card,Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import { FaGoogle } from "react-icons/fa"
 import { ToastContainer, toast } from 'react-toastify';
@@ -9,7 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
 
     const { logIn, googleLogin,user } = useContext(AuthContext);
-    console.log(user)
+   const navigate =useNavigate();
+   const location = useLocation();
+   const from =location.state?.from?.pathname || "/"
 
     const handleLogin = (event) => {
         event.preventDefault()
@@ -25,7 +27,10 @@ const Login = () => {
                 if(user){
                     toast.info("Successfully Login", { position: "top-right", theme: "dark" })
                 }
+
+                navigate(from, {replace: true})
                 form.reset();
+
 
             })
             .catch(error => console.error(error))
