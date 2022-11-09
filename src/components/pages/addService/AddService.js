@@ -16,10 +16,23 @@ const AddService = () => {
             price,
             description,)
 
+
+
+       
+
         const addservice = {
             header,
             img,
             price,
+            reviews: [
+                {
+                    name: "Siobhan P",
+                    email: "siobhan@gamil.com",
+                    rates: 5,
+                    review: "“After a bad experience at a different dental office, Clear Lakes Dental fixed it all painlessly, and provided a great experience!”"
+                }
+    
+            ],
             description,
 
         }
@@ -62,6 +75,7 @@ const AddService = () => {
                             type="text"
                             sizing="sm"
                             name="img"
+                            required={true}
                         />
                     </div>
                     <div>
@@ -76,6 +90,7 @@ const AddService = () => {
                             type="text"
                             sizing="sm"
                             name="header"
+                            required={true}
 
 
 
@@ -93,6 +108,7 @@ const AddService = () => {
                             type="text"
                             sizing="sm"
                             name="price"
+                            required={true}
                         />
                     </div>
                     <div>
@@ -107,6 +123,7 @@ const AddService = () => {
                             type="text"
                             sizing="lg"
                             name="description"
+                            required={true}
                         />
                     </div>
                     <Button type="submit" className='bg-blue-500 w-4/12'>Submit</Button>

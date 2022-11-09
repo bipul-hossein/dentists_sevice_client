@@ -12,18 +12,13 @@ const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
     console.log(user)
 
-
-
     const handleReview = (event) => {
         event.preventDefault();
         const form = event.target;
         const reviewField = form.review.value;
         const rating = form.rating.value;
-        console.log(reviewField, rating)
         const name = user?.displayName;
         const email = user?.email;
-
-
 
         const review = {
             service: _id,
@@ -70,7 +65,7 @@ const ServiceDetails = () => {
                     </div>
                     <div className='my-5'>
                         <div>
-                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{serviceName}</h5>
+                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{serviceName || header }</h5>
                             <p className="font-normal text-gray-700 dark:text-gray-400">{description}</p>
 
                         </div>
