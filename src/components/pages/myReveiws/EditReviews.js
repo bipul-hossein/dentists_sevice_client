@@ -11,7 +11,7 @@ const EditReviews = () => {
 
     const router = useParams()
     const { id } = router;
-    console.log(id)
+ 
 
     useEffect(() => {
         fetch(`https://assignment11-server-two.vercel.app/review/${id}`)
@@ -58,44 +58,49 @@ const EditReviews = () => {
     }
 
     return (
-        <form onSubmit={handleEdit} className="flex flex-col gap-4">
+        <div className='flex justify-center items-center'>
+            <div className='w-4/5'>
+                <h4 className='text-3xl mb-12 mt-8'>Edit Your {review?.serviceName} service</h4>
+                <form onSubmit={handleEdit} className="flex flex-col gap-4">
 
 
-            <div id="textarea">
-                <div className="mb-2 block">
-                    <Label
-                        htmlFor="comment"
-                        value="review"
-                    />
-                </div>
-                <Textarea
-                    id="comment"
-                    type="text"
-                    placeholder="Leave a comment..."
-                    required={true}
-                    rows={4}
-                    name="review"
-                    defaultValue={review?.reviewField}
-                />
+                    <div id="textarea">
+                        <div className="mb-2 block">
+                            <Label
+                                htmlFor="comment"
+                                value="review"
+                            />
+                        </div>
+                        <Textarea
+                            id="comment"
+                            type="text"
+                            placeholder="Leave a comment..."
+                            required={true}
+                            rows={4}
+                            name="review"
+                            defaultValue={review?.reviewField}
+                        />
+                    </div>
+                    <div>
+                        <div className="mb-2 block">
+                            <Label
+                                htmlFor="rating"
+                                value="rating"
+                            />
+                        </div>
+                        <TextInput
+                            id="rating1"
+                            placeholder="provide a number"
+                            type="number"
+                            name="rating"
+                            defaultValue={review?.rating}
+                        />
+                    </div>
+                    <Button type="submit" className='bg-blue-500 w-4/12'>Write review </Button>
+
+                </form>
             </div>
-            <div>
-                <div className="mb-2 block">
-                    <Label
-                        htmlFor="rating"
-                        value="rating"
-                    />
-                </div>
-                <TextInput
-                    id="rating1"
-                    placeholder="provide a number"
-                    type="number"
-                    name="rating"
-                    defaultValue={review?.rating}
-                />
-            </div>
-            <Button type="submit" className='bg-blue-500 w-4/12'>Write review </Button>
-
-        </form>
+        </div>
     );
 };
 

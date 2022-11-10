@@ -9,6 +9,9 @@ const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([])
 
+
+
+
     useEffect(() => {
         fetch(`https://assignment11-server-two.vercel.app/reviews?email=${user?.email}`)
             .then(res => res.json())
@@ -39,17 +42,18 @@ const MyReviews = () => {
         }
     }
     const navigate = useNavigate();
-    const handleEdit = (id)=>{
-        console.log('delete',id)
+    const handleEdit = (id) => {
         navigate(`/review/edit/${id}`)
     }
 
     return (
-        <div>
-            <p className='text-7xl mb-20 mt-8'>my review length:{reviews.length}</p>
+        <div className='flex justify-center items-center'>
+            <div className='w-4/5'>
+            <p className='text-3xl mb-12 mt-8'>Review length:{reviews.length}</p>
+           
             <Table hoverable={true}>
                 <Table.Head>
-                   
+
                     <Table.HeadCell>
                         Service name
                     </Table.HeadCell>
@@ -73,48 +77,55 @@ const MyReviews = () => {
                         </span>
                     </Table.HeadCell>
                 </Table.Head>
+
+               
                 {
                     reviews.map(review => {
                         return (
-                            
-                                <Table.Body key={review.id} className="divide-y">
-                                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white flex items-center gap-2">
-                                            <img src={review.serviceImg} alt="" className=' h-12' />{review.serviceName}
-                                        </Table.Cell>
-                                        <Table.Cell>
-                                            {review.reviewField}
-                                        </Table.Cell>
-                                        <Table.Cell>
-                                            {review.rating}
-                                        </Table.Cell>
-                                        <Table.Cell>
-                                            ${review.price}
-                                        </Table.Cell>
-                                        <Table.Cell>
-                                            <p
-                                                onClick={() => handleEdit(review._id)}  
-                                                className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                                            >
-                                                Edit
-                                            </p>
-                                        </Table.Cell>
-                                        <Table.Cell>
-                                            <p
-                                                onClick={() => handleDelete(review)}
-                                                className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                                            >
-                                                Delete
-                                            </p>
-                                        </Table.Cell>
-                                    </Table.Row>
-                                </Table.Body>
-                          
+
+                            <Table.Body key={review.id} className="divide-y">
+                                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white flex items-center gap-2">
+                                        <img src={review.serviceImg} alt="" className=' h-12' />{review.serviceName}
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        {review.reviewField}
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        {review.rating}
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        ${review.price}
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        <p
+                                            onClick={() => handleEdit(review._id)}
+                                            className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+                                        >
+                                            Edit
+                                        </p>
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        <p
+                                            onClick={() => handleDelete(review)}
+                                            className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+                                        >
+                                            Delete
+                                        </p>
+                                    </Table.Cell>
+                                </Table.Row>
+                            </Table.Body>
+
                         )
                     })
                 }
 
             </Table>
+
+            {reviews?.length === 0 ? 
+                <div className='flex items-center justify-center my-40 text-2xl text-bold'>No reviews were added</div> :
+                 <></>}
+        </div>
         </div>
     );
 };

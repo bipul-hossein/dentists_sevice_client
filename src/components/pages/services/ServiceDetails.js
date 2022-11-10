@@ -1,17 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { BiStar } from "react-icons/bi";
 import { BsArrowRightShort } from "react-icons/bs";
 import { Button, Label, Textarea, TextInput } from 'flowbite-react';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const ServiceDetails = () => {
     const { _id, header, serviceName, img, description, price, ratings, benefitName, benefitDetails, reviews } = useLoaderData()
-    console.log(img)
     const { user } = useContext(AuthContext);
-    console.log(user)
+    const [refresh, setRefresh] = useState(false)
+    const [review, setReview] = useState([])
 
+    //get code client site
+    useEffect(() => {
+        fetch(`https://assignment11-server-two.vercel.app/reviews/${_id}`)
+            .then(res => res.json())
+            .then(data => setReview(data))
+    }, [_id, refresh])
+
+
+    const navigate = useNavigate();
     const handleReview = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -20,16 +31,23 @@ const ServiceDetails = () => {
         const name = user?.displayName;
         const email = user?.email;
 
+
+        if (!user?.uid) {
+            navigate(`/login`)
+            alert ("please Login first")
+            return  
+        }
+
         const review = {
             service: _id,
             serviceName: header,
-            serviceImg:img,
+            serviceImg: img,
             price,
             customer: name,
             email,
             reviewField,
             rating,
-            
+
         }
 
         fetch('https://assignment11-server-two.vercel.app/reviews', {
@@ -42,6 +60,7 @@ const ServiceDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                setRefresh(!refresh)
                 if (data.acknowledged) {
                     alert('review placed successfully');
                     form.reset();
@@ -65,7 +84,7 @@ const ServiceDetails = () => {
                     </div>
                     <div className='my-5'>
                         <div>
-                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{serviceName || header }</h5>
+                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{serviceName || header}</h5>
                             <p className="font-normal text-gray-700 dark:text-gray-400">{description}</p>
 
                         </div>
@@ -143,12 +162,23 @@ const ServiceDetails = () => {
                 <div className='flex flex-col my-4 w-auto'>
                     <p className=' text-2xl font-bold flex items-center gap-2'>Ratings and reviews<BsArrowRightShort className='text-2xl font-bold'></BsArrowRightShort></p>
                     <div className='mb-2 bg-slate-100 flex flex-row sm:flex-wrap gap-4'>
+
+
+                        {
+                            review.map(re => <div className='bg-slate-200 w-full'><p>“{re.reviewField}”</p>
+                                <p>- {re.email}</p>
+                                <p>rates: {re.rating
+                                }</p>
+                            </div>)
+
+                        }
                         {reviews.map(re => <div className='bg-slate-200 w-full'><p>{re.review}</p>
                             <p>-{re.name} ({re.email})</p>
                             <p>rates: {re.rates}</p>
                         </div>)
 
                         }
+
                     </div>
 
 

@@ -18,7 +18,7 @@ const AddService = () => {
 
 
 
-       
+
 
         const addservice = {
             header,
@@ -31,7 +31,7 @@ const AddService = () => {
                     rates: 5,
                     review: "“After a bad experience at a different dental office, Clear Lakes Dental fixed it all painlessly, and provided a great experience!”"
                 }
-    
+
             ],
             description,
 
@@ -58,77 +58,79 @@ const AddService = () => {
 
 
     return (
-        <div>
-            <h1>add a service</h1>
-            <form onSubmit={handleReview}>
+        <div className='flex justify-center items-center'>
+            <div className='w-4/5'>
+                <h1 className='text-3xl mb-5 mt-8'>add a service</h1>
+                <form onSubmit={handleReview}>
 
-                <div className="flex flex-col gap-4">
-                    <div>
-                        <div className="mb-2 block">
-                            <Label
-                                htmlFor="small"
-                                value="Image URL"
+                    <div className="flex flex-col gap-4">
+                        <div>
+                            <div className="mb-2 block">
+                                <Label
+                                    htmlFor="small"
+                                    value="Image URL"
+                                />
+                            </div>
+                            <TextInput
+                                id="small"
+                                type="text"
+                                sizing="sm"
+                                name="img"
+                                required={true}
                             />
                         </div>
-                        <TextInput
-                            id="small"
-                            type="text"
-                            sizing="sm"
-                            name="img"
-                            required={true}
-                        />
-                    </div>
-                    <div>
-                        <div className="mb-2 block">
-                            <Label
-                                htmlFor="small"
-                                value="Header"
-                            />
-                        </div>
-                        <TextInput
-                            id="small"
-                            type="text"
-                            sizing="sm"
-                            name="header"
-                            required={true}
+                        <div>
+                            <div className="mb-2 block">
+                                <Label
+                                    htmlFor="small"
+                                    value="Header"
+                                />
+                            </div>
+                            <TextInput
+                                id="small"
+                                type="text"
+                                sizing="sm"
+                                name="header"
+                                required={true}
 
 
 
-                        />
-                    </div>
-                    <div>
-                        <div className="mb-2 block">
-                            <Label
-                                htmlFor="small"
-                                value="Price input"
                             />
                         </div>
-                        <TextInput
-                            id="small"
-                            type="text"
-                            sizing="sm"
-                            name="price"
-                            required={true}
-                        />
-                    </div>
-                    <div>
-                        <div className="mb-2 block">
-                            <Label
-                                htmlFor="large"
-                                value="Description Field"
+                        <div>
+                            <div className="mb-2 block">
+                                <Label
+                                    htmlFor="small"
+                                    value="Price input"
+                                />
+                            </div>
+                            <TextInput
+                                id="small"
+                                type="text"
+                                sizing="sm"
+                                name="price"
+                                required={true}
                             />
                         </div>
-                        <TextInput
-                            id="large"
-                            type="text"
-                            sizing="lg"
-                            name="description"
-                            required={true}
-                        />
+                        <div>
+                            <div className="mb-2 block">
+                                <Label
+                                    htmlFor="large"
+                                    value="Description Field"
+                                />
+                            </div>
+                            <TextInput
+                                id="large"
+                                type="text"
+                                sizing="lg"
+                                name="description"
+                                required={true}
+                            />
+                        </div>
+                        <Button type="submit" className='bg-blue-500 w-4/12'>Submit</Button>
                     </div>
-                    <Button type="submit" className='bg-blue-500 w-4/12'>Submit</Button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     );
 };
