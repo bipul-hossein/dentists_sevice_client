@@ -11,10 +11,10 @@ const HomeServiceCon = () => {
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">SERVICES</h5>
                    <Link to="/services"> <Button>SEE ALL</Button></Link>
                 </div>
-            <div className='flex flex-row sm:flex-wrap gap-4 '>
+            <div className='flex gap-4 '>
               
                 {data.map(service =>
-                    <div key={service._id} className="max-w-sm">
+                    <div key={service._id} className="w-auto">
                         <Card imgSrc={service.img}>
                             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 {service.header}
