@@ -38,11 +38,16 @@ useTitle('SignUp')
         if(user){
             toast.success('Register Successfully!!',{position: "top-center", theme: "colored" })
         }
+            
+        
         console.log(user)
         form.reset()
        
     })
-    .catch(error => console.error(error))
+.catch(error => {
+    toast.info('Register not success, Try Again!!',{position: "top-center", theme: "colored" })
+    console.error(error)
+})
 
       
     }
