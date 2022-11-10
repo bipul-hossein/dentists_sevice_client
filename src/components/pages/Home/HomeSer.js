@@ -1,5 +1,6 @@
 import { Button, Card } from 'flowbite-react';
 import React from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import '../Blogs/blogs.css'
 
@@ -8,7 +9,12 @@ const HomeServiceCon = () => {
     return (
                 <div className='grid lg:grid-cols-3 gap-4 pt-5 ml-5'>
                     {data.map(service =>
-                        <Card key={service._id} imgSrc={service.img} className="w-auto">
+                        <Card key={service._id}  className="w-auto">                          
+                            <PhotoProvider>
+                                <PhotoView src={service.img}>
+                                    <img src={service.img} alt="" />
+                                </PhotoView>
+                            </PhotoProvider>
                             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 {service.header}
                             </h5>

@@ -10,11 +10,11 @@ const Services = () => {
     const data = useLoaderData()
     useTitle('Services')
     return (
-        <div className='mx-40 mt-12'>
-            <div className='flex flex-row sm:flex-wrap gap-4 '>
+        <div className='w-11/12 m-auto mt-12'>
+            <div className='grid lg:grid-cols-3 gap-4 pt-5 ml-5 '>
 
                 {data.map(service =>
-                    <div key={service._id} className="max-w-sm">
+                    <div key={service._id} className="w-auto">
                         <Card >
                             <PhotoProvider>
                                 <PhotoView src={service.img}>
