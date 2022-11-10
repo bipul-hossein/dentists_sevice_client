@@ -49,7 +49,7 @@ const MyReviews = () => {
     }
 
     return (
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-center bg-fuchsia-50 pb-12'>
             <div className='w-4/5'>
             <p className='text-3xl mb-12 mt-8'>Review length:{reviews.length}</p>
            

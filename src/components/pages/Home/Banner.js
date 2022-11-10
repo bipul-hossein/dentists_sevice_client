@@ -8,7 +8,7 @@ const Banner = () => {
                 <div className='my-5'>
                     <div>
                         <h2 className='text-xl md:text-2xl lg:text-4xl font-extrabold leading-none'>Welcome to my world of dental care services</h2>
-                        <p className='text-base my-5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar leo .</p>
+                        <p className='text-base my-5'> This website is my offcial site. This site also help yo to know about dental related problem and update every time.</p>
                         <Button className=''>Go service</Button>
                     </div>
                 </div>

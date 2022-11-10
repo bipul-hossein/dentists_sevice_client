@@ -59,7 +59,7 @@ useTitle('Add Service')
 
 
     return (
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-center bg-fuchsia-50 pb-12'>
             <div className='w-4/5'>
                 <h1 className='text-3xl mb-5 mt-8'>add a service</h1>
                 <form onSubmit={handleReview}>
@@ -128,7 +128,7 @@ useTitle('Add Service')
                                 required={true}
                             />
                         </div>
-                        <Button type="submit" className='bg-blue-500 w-4/12'>Submit</Button>
+                        <Button type="submit" className='bg-blue-500 w-2/12'>Submit</Button>
                     </div>
                 </form>
             </div>

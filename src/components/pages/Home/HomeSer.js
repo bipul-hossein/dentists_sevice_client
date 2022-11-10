@@ -6,7 +6,7 @@ import '../Blogs/blogs.css'
 const HomeServiceCon = () => {
     const data = useLoaderData()
     return (
-                <div className='grid lg:grid-cols-3 gap-4 pt-8 ml-5'>
+                <div className='grid lg:grid-cols-3 gap-4 pt-5 ml-5'>
                     {data.map(service =>
                         <Card key={service._id} imgSrc={service.img} className="w-auto">
                             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

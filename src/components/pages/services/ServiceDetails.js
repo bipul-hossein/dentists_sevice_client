@@ -4,9 +4,8 @@ import { BiStar } from "react-icons/bi";
 import { BsArrowRightShort } from "react-icons/bs";
 import { Button, Label, Textarea, TextInput } from 'flowbite-react';
 import { AuthContext } from '../../../contexts/AuthProvider';
-import { useNavigate } from 'react-router-dom';
-
-
+import 'react-toastify/dist/ReactToastify.css';
+import {  toast } from 'react-toastify';
 
 const ServiceDetails = () => {
     const { _id, header, serviceName, img, description, price, ratings, benefitName, benefitDetails, reviews } = useLoaderData()
@@ -22,7 +21,7 @@ const ServiceDetails = () => {
     }, [_id, refresh])
 
 
-    const navigate = useNavigate();
+    
     const handleReview = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -33,7 +32,7 @@ const ServiceDetails = () => {
 
 
         if (!user?.uid) {
-            navigate(`/login`)
+            toast.info("please Login and Review", { position: "top-right", theme: "dark" })
             alert ("please Login first")
             return  
         }
@@ -69,12 +68,12 @@ const ServiceDetails = () => {
             .catch(error => console.error(error));
     }
     return (
-        <div className="mb-16 h-56 sm:h-64 xl:h-80 2xl:h-96">
+        <div className="mb-16">
 
             {/* service details sections */}
-            <div>
+            <div className='flex flex-col mx-40 my-3 w-auto' >
                 <h2 className='text-center mb-3 text-4xl font-bold'>SERVICE DETAILS</h2>
-                <div className='flex flex-col mx-40 my-3 w-auto'>
+                <div className='flex flex-col my-3 w-auto'>
 
                     <div className='w-full'>
                         <img src={img} alt=""></img>

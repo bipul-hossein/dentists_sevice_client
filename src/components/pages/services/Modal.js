@@ -15,7 +15,7 @@ const Modal = () => {
           show={false}
           size="md"
           popup={true}
-        //   onClose={onClose}
+        // onClose={onClose}
         >
           <Modal.Header />
           <Modal.Body>
