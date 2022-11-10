@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../../hooks/useTitle';
 
 const Signup = () => {
-
+useTitle('SignUp')
     const {createUser}=useContext(AuthContext);
     console.log(createUser)
 

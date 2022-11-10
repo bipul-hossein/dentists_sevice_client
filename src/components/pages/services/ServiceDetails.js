@@ -67,10 +67,7 @@ const ServiceDetails = () => {
                 }
             })
             .catch(error => console.error(error));
-
-
     }
-
     return (
         <div className="mb-16 h-56 sm:h-64 xl:h-80 2xl:h-96">
 

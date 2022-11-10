@@ -1,7 +1,9 @@
 import React from 'react';
+import useTitle from '../../../hooks/useTitle';
 import "./blogs.css"
 
 const Blogs = () => {
+    useTitle('Blog Page')
     return (
         <div id="background">
 

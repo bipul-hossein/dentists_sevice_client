@@ -1,3 +1,4 @@
+import { Spinner } from 'flowbite-react';
 import React from 'react';
 import { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
@@ -9,7 +10,7 @@ const PrivateRoute = ({children}) => {
  const location = useLocation();
 
  if(loading){
-    return <div>Loading...</div>
+    return <div><Spinner aria-label="Default status example" /></div>
  }
 
  if(user && user.uid){

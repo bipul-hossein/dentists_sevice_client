@@ -3,11 +3,12 @@ import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';  
+import useTitle from '../../../hooks/useTitle';
 
 
 const Services = () => {
     const data = useLoaderData()
-    // console.log(data)
+    useTitle('Services')
     return (
         <div className='mx-40 mt-12'>
             <div className='flex flex-row sm:flex-wrap gap-4 '>

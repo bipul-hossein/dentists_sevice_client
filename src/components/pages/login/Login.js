@@ -5,9 +5,10 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 import { FaGoogle } from "react-icons/fa"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../../hooks/useTitle';
 
 const Login = () => {
-
+useTitle('Ligin')
     const { logIn, googleLogin,user } = useContext(AuthContext);
    const navigate =useNavigate();
    const location = useLocation();

@@ -21,12 +21,12 @@ const Nav = () => {
                     <Link to="/">
                         <Navbar.Brand >
                             <img
-                                src="https://flowbite.com/docs/images/logo.svg"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQHsjxuAixup3lGXU8Fxwl_T1d56fAJ2oaRQ&usqp=CAU"
                                 className="mr-3 h-6 sm:h-9"
                                 alt="Flowbite Logo"
                             />
                             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                                Flowbite
+                            Dr. Robert Fujii
                             </span>
                         </Navbar.Brand>
                     </Link>
@@ -37,7 +37,7 @@ const Nav = () => {
                             <FaEnvelope />SEND MESSAGE
                         </Link>
 
-                        <Link className='flex items-center gap-3 lg:text-lgb text-blue-600 hover:underline dark:text-blue-500'>
+                        <Link className='flex items-center gap-3 lg:text-lg text-blue-600 hover:underline dark:text-blue-500'>
                             <FaPhone />+2308420894
                         </Link>
 

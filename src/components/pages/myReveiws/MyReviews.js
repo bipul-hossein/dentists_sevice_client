@@ -2,8 +2,10 @@ import { Table } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const MyReviews = () => {
+    useTitle('My Reviews')
     const [displayReviews, setDisplayReviews] = useState()
     const [refresh, setRefresh] = useState(false)
     const { user } = useContext(AuthContext);
