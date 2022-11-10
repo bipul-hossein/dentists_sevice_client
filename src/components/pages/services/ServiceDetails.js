@@ -61,14 +61,14 @@ const ServiceDetails = () => {
                 console.log(data)
                 setRefresh(!refresh)
                 if (data.acknowledged) {
-                    alert('review placed successfully');
+                    toast.success('Register Successfully!!',{position: "top-center", theme: "colored" })
                     form.reset();
                 }
             })
             .catch(error => console.error(error));
     }
     return (
-        <div className="mb-16">
+        <div className="mb-16 bg-fuchsia-50">
 
             {/* service details sections */}
             <div className='flex flex-col mx-40 my-3 w-auto' >

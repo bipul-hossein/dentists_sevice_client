@@ -27,11 +27,12 @@ useTitle('Ligin')
                 const user = result.user;
                 if(user){
                     toast.info("Successfully Login", { position: "top-right", theme: "dark" })
+                }else{ toast.info("wrong password", { position: "top-right", theme: "dark" })
+
                 }
 
                 navigate(from, {replace: true})
                 form.reset();
-
 
             })
             .catch(error => console.error(error))
@@ -46,7 +47,6 @@ useTitle('Ligin')
             })
             .catch(error => console.error(error))
     }
-
 
 
 

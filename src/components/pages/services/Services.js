@@ -30,7 +30,7 @@ const Services = () => {
                             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 $ {service.price}
                             </h5>
-                            <Link to={`/services/${service._id}`}><Button>Details</Button></Link>
+                            <Link to={`/services/${service._id}`}><Button className='w-full'>Details</Button></Link>
                         </Card>
                     </div>
                 )}
