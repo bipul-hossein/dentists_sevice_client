@@ -26,7 +26,7 @@ const Nav = () => {
                                 alt="Flowbite Logo"
                             />
                             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                            Dr. Robert Fujii
+                                Dr. Robert Fujii
                             </span>
                         </Navbar.Brand>
                     </Link>
@@ -52,6 +52,7 @@ const Nav = () => {
                         <Link className='lg:text-lg' to="/blogs">
                             Blogs
                         </Link>
+
 
                         {
                             user?.uid ?

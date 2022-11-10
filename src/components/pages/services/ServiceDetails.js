@@ -5,7 +5,7 @@ import { BsArrowRightShort } from "react-icons/bs";
 import { Button, Label, Textarea, TextInput } from 'flowbite-react';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import 'react-toastify/dist/ReactToastify.css';
-import {  toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 const ServiceDetails = () => {
     const { _id, header, serviceName, img, description, price, ratings, benefitName, benefitDetails, reviews } = useLoaderData()
@@ -33,7 +33,6 @@ const ServiceDetails = () => {
 
         if (!user?.uid) {
             toast.info("please Login and Review", { position: "top-right", theme: "dark" })
-            alert ("please Login first")
             return  
         }
 
@@ -61,7 +60,7 @@ const ServiceDetails = () => {
                 console.log(data)
                 setRefresh(!refresh)
                 if (data.acknowledged) {
-                    toast.success('Register Successfully!!',{position: "top-center", theme: "colored" })
+                    toast.success('Review add successfully!!',{position: "top-center", theme: "colored" })
                     form.reset();
                 }
             })
@@ -102,7 +101,7 @@ const ServiceDetails = () => {
             </div>
 
             {/* review section */}
-
+            <ToastContainer />
             <div className='flex flex-col mx-40 my-3 w-auto'>
                 <div>
                     <h2 className=' text-2xl font-bold'>Rate this service</h2>

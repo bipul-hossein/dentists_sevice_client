@@ -1,6 +1,8 @@
 import { Button, Label, TextInput } from 'flowbite-react';
 import React from 'react';
 import useTitle from '../../../hooks/useTitle';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddService = () => {
 useTitle('Add Service')
@@ -49,7 +51,8 @@ useTitle('Add Service')
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('review placed successfully');
+                    toast.success("review placed successfully", { position: "top-right", theme: "dark" })
+                  
                     form.reset();
                 }
             })
@@ -129,6 +132,7 @@ useTitle('Add Service')
                             />
                         </div>
                         <Button type="submit" className='bg-blue-500 w-2/12'>Submit</Button>
+                        <ToastContainer />
                     </div>
                 </form>
             </div>
